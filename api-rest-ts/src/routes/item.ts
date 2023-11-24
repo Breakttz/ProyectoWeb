@@ -1,10 +1,17 @@
 import { Router, Request, Response } from "express";
+import { deleteItem, getItem, getItems, postItem, putItem } from "../controllers/item";
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-    // Tu lógica para manejar la solicitud GET '/items' va aquí
-    res.send('Respuesta para la ruta /items');
-});
+router.get("/:id" , getItem );
+
+router.get("/", getItems);
+
+router.post("/", postItem);
+
+router.put("/:id", putItem);
+
+router.delete("/:id",deleteItem);
+
 
 export { router };
