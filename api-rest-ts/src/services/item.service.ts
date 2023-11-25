@@ -15,4 +15,19 @@ const getNotice = async (id:string) => {
     const responseItem = await itemModel.findOne({ _id : id})
     return responseItem;
 }
-export {insertNotice,getNotice, getNotices};
+
+const udpateNotice = async (id:string, data : Notice) => {
+    const responseItem = await itemModel.findOneAndUpdate(
+        { _id : id},
+        data,
+        {new : true}
+        );
+    return responseItem;
+}
+const deleteNotice = async (id:string) => {
+    const responseItem = await itemModel.findOneAndDelete({_id:id})
+    return responseItem;
+}
+
+
+export {insertNotice,getNotice, getNotices,udpateNotice , deleteNotice};

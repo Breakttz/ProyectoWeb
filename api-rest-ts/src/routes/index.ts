@@ -11,7 +11,6 @@ const cleanFileName = (filename:string) =>{
     return file;
 }
 
-
 readdirSync(PATH_ROUTER).filter((Filename)=>{
     const cleanName = cleanFileName(Filename);
     if (cleanName!== "index"){
