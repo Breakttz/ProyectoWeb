@@ -12,6 +12,7 @@ import { NormativasComponent } from './pages/normativas/normativas.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { ComoayudarComponent } from './pages/comoayudar/comoayudar.component';
 import { SobrenosotrosComponent } from './pages/sobrenosotros/sobrenosotros.component';
+import { ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar ReactiveFormsModule
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SobrenosotrosComponent } from './pages/sobrenosotros/sobrenosotros.comp
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
