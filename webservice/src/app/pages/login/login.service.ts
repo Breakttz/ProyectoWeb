@@ -2,7 +2,8 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,13 @@ export class AuthService {
 
   login(credentials: { email: string; password: string }): Observable<any> {
     // Envia la solicitud POST al backend para autenticación
-    return this.http.post(`${this.apiUrl}/auth/login`, credentials);
+    return this.http.post(`${this.apiUrl}/auth/login`, credentials)
+    .pipe(
+      catchError(error => {
+        // Propaga el error con el mensaje personalizado
+        return throwError(error.error.message || 'Error en la autenticación');
+      })
+    );
   }
 
   setToken(token: string): void {
