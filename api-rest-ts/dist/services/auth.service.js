@@ -16,13 +16,18 @@ exports.loginUser = exports.registerNewUser = void 0;
 const user_model_1 = __importDefault(require("../models/user.model"));
 const bscrypt_handle_1 = require("../utils/bscrypt.handle");
 const jwt_handle_1 = require("../utils/jwt.handle");
-const registerNewUser = ({ email, password, nameusuario }) => __awaiter(void 0, void 0, void 0, function* () {
-    const checkIs = yield user_model_1.default.findOne({ email });
-    if (checkIs)
-        return "ALREADY USER";
-    const passHash = yield (0, bscrypt_handle_1.encrypt)(password);
-    const newUser = yield user_model_1.default.create({ email, password: passHash, nameusuario });
-    return newUser;
+const registerNewUser = ({ email, password, nameusuario, rut, region, comuna }) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const checkIs = yield user_model_1.default.findOne({ email });
+        if (checkIs)
+            return "ALREADY USER";
+        const passHash = yield (0, bscrypt_handle_1.encrypt)(password);
+        const newUser = yield user_model_1.default.create({ email, password: passHash, nameusuario, rut, region, comuna });
+        return newUser;
+    }
+    catch (error) {
+        console.error(error);
+    }
 });
 exports.registerNewUser = registerNewUser;
 const loginUser = ({ email, password }) => __awaiter(void 0, void 0, void 0, function* () {

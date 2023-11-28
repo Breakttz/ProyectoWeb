@@ -6,12 +6,16 @@ import { generateToken } from "../utils/jwt.handle";
 
 
 
-const registerNewUser = async ({email, password,nameusuario}: User) => {
-    const checkIs = await UserModel.findOne({email});
-    if (checkIs) return "ALREADY USER";
-    const passHash = await encrypt(password);
-    const newUser = await UserModel.create({email,password:passHash,nameusuario});
-    return newUser;
+const registerNewUser = async ({email,password,nameusuario,rut,region,comuna}: User) => {
+try {
+        const checkIs = await UserModel.findOne({email});
+        if (checkIs) return "ALREADY USER";
+        const passHash = await encrypt(password);
+        const newUser = await UserModel.create({email,password:passHash,nameusuario,rut,region,comuna});
+        return newUser;
+} catch (error) {
+    console.error(error);
+}
 };
 
 const loginUser = async ({email,password}:Auth) => {

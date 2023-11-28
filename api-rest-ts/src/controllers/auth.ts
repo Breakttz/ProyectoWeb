@@ -3,7 +3,6 @@ import { loginUser,registerNewUser } from "../services/auth.service";
 
 
 const registerCtrl = async ({body}: Request, res: Response) => {
-    console.log("CONTROLADOR ")
     const responseUser = await registerNewUser(body);
     res.send(responseUser);
 

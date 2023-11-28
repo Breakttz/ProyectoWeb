@@ -7,6 +7,18 @@ const UserSchema = new mongoose_1.Schema({
         require: true,
         unique: true,
     },
+    rut: {
+        type: String,
+        require: true,
+    },
+    region: {
+        type: String,
+        require: true,
+    },
+    comuna: {
+        type: String,
+        require: true,
+    },
     password: {
         type: String,
         require: true,
