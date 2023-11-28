@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginCtrl = exports.registerCtrl = void 0;
 const auth_service_1 = require("../services/auth.service");
 const registerCtrl = ({ body }, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("CONTROLADOR ");
     const responseUser = yield (0, auth_service_1.registerNewUser)(body);
     res.send(responseUser);
 });
