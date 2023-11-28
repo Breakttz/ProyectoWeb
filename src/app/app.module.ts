@@ -12,6 +12,7 @@ import { NormativasComponent } from './pages/normativas/normativas.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { ComoayudarComponent } from './pages/comoayudar/comoayudar.component';
 import { SobrenosotrosComponent } from './pages/sobrenosotros/sobrenosotros.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SobrenosotrosComponent } from './pages/sobrenosotros/sobrenosotros.comp
     NoticiasComponent,
     ComoayudarComponent,
     SobrenosotrosComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
