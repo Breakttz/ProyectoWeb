@@ -1,0 +1,44 @@
+<!-- app/perfilusuario/perfilusuario.component.html -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name Usuario</th>
+      <th scope="col">Email</th>
+      <th scope="col">Usuario (RUT)</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <th scope="row">{{ user._id }}</th>
+      <td>
+        <span *ngIf="!user.editing">{{ user.nameusuario }}</span>
+        <input *ngIf="user.editing" [(ngModel)]="user.nameusuario" />
+      </td>
+      <td>
+        <span *ngIf="!user.editing">{{ user.email }}</span>
+        <input *ngIf="user.editing" [(ngModel)]="user.email" />
+      </td>
+      <td>
+        <span *ngIf="!user.editing">{{ user.rut }}</span>
+        <input *ngIf="user.editing" [(ngModel)]="user.rut" />
+      </td>
+      <td>
+        <button class="btn-primary" (click)="toggleEditMode(user)">
+          Editar
+        </button>
+        <button class="btn-primary" (click)="deleteUser(user._id)">
+          Eliminar
+        </button>
+        <button
+          class="btn-primary"
+          *ngIf="user.editing"
+          (click)="saveUser(user)"
+        >
+          Guardar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

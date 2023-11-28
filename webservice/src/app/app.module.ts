@@ -16,6 +16,9 @@ import { SobrenosotrosComponent } from './pages/sobrenosotros/sobrenosotros.comp
 
 import { ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar ReactiveFormsModule
 import { HttpClientModule } from '@angular/common/http';
+import { PerfilusuarioComponent } from './pages/perfilusuario/perfilusuario.component';
+import { AuthGuard } from './auth.guard';
+import { PerfilnormalComponent } from './components/perfilnormal/perfilnormal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     NoticiasComponent,
     ComoayudarComponent,
     SobrenosotrosComponent,
+    PerfilusuarioComponent,
+    PerfilnormalComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     // No debes importar NgModule aquí
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
